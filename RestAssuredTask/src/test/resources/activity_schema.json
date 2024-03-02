@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bored API Activity Schema",
+  "description": "Schema definition for validating Bored API activity objects.",
+  "type": "object",
+  "properties": {
+    "activity": {
+      "type": "string",
+      "description": "The activity to be performed."
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of activity."
+    },
+    "participants": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "The number of participants required for the activity."
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0,
+      "description": "The estimated price of the activity. A value of 0 indicates it's free."
+    },
+    "link": {
+      "type": "string",
+      "format": "uri",
+      "description": "A link to additional information about the activity, if available."
+    },
+    "key": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "A unique key identifying the activity."
+    },
+    "accessibility": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "The level of accessibility of the activity. A value closer to 0 indicates it's more accessible."
+    }
+  },
+  "required": ["activity", "type", "participants", "price", "key", "accessibility"]
+}
